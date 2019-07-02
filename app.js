@@ -29,8 +29,8 @@ const getClima = () => {
 }
 
 const conectarRabbit = async () => {
-  //amqp.connect('amqp://proyecto:1234@34.226.118.240', function(error0, connection) {
-  amqp.connect('amqp://localhost', function(error0, connection) {
+  amqp.connect('amqp://proyecto:1234@34.226.118.240', function(error0, connection) {
+  //amqp.connect('amqp://localhost', function(error0, connection) {
 	  if (error0) {
 		throw error0; 
 	  }
