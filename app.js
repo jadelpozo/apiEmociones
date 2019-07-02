@@ -29,7 +29,7 @@ const getClima = () => {
 }
 
 const conectarRabbit = async () => {
-  //amqp.connect('amqp://proyecto:1234@54.144.225.71', function(error0, connection) {
+  //amqp.connect('amqp://proyecto:1234@34.226.118.240', function(error0, connection) {
   amqp.connect('amqp://localhost', function(error0, connection) {
 	  if (error0) {
 		throw error0; 
@@ -44,7 +44,7 @@ const conectarRabbit = async () => {
 		  durable: false
 		});
 		channel.prefetch(1);
-		console.log(' [x] Awaiting RPC requests');
+		console.log(' [x] Awaiting Emociones requests');
 		channel.consume(queue, function reply(msg) {
 			var name = msg.content.toString();
 			console.log(" [.] nombre: " + name);
@@ -64,7 +64,7 @@ const conectarRabbit = async () => {
             function recognize() {
                     rekognition.detectFaces(params, (error, data) => {
                     if (error) throw error;
-                    console.log(JSON.stringify(data, null, '\t'));
+                    //console.log(JSON.stringify(data, null, '\t'));
                     data.FaceDetails.forEach((response) => {
                         maxConfidence = response.Emotions.reduce((a, b) => b.Confidence > a.Confidence ? b : a);
                     })
