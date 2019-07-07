@@ -50,6 +50,23 @@ const conectarRabbit = async () => {
 			console.log(" [.] nombre: " + name);
 			var r; 
 			//---------------------
+		  var notReady = true;
+		  function waitAnswer(){
+		      if (notReady) {
+			  setTimeout(function(){waitAnswer()},500);
+		      } else {
+			  //console.log(maxConfidence.Type)
+			        console.log(maxConfidence.Type)
+				r = maxConfidence.Type;
+				//r = Math.random().toString();
+				channel.sendToQueue(msg.properties.replyTo,
+				Buffer.from(r), {
+				  correlationId: msg.properties.correlationId
+				});
+
+				channel.ack(msg);
+		      }
+		  }
 			var params = {
                 Attributes: [ "ALL" ], //Emotions attribute
                 Image: {
@@ -70,9 +87,9 @@ const conectarRabbit = async () => {
                     })
                 })
             }
-            recognize() 
-        
-            setTimeout(function(){
+            recognize();
+            waitAnswer(); 
+            /*setTimeout(function(){
                 console.log(maxConfidence.Type)
 				r = maxConfidence.Type;
 				//r = Math.random().toString();
@@ -82,7 +99,7 @@ const conectarRabbit = async () => {
 				});
 
 				channel.ack(msg);
-            }, 4000);      
+            }, 4000);     */ 
 			
 		  
 		});
