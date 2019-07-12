@@ -22,7 +22,7 @@ const axios = require('axios');
 
 const getClima = () => {
   try {
-    return axios.get('http://api.openweathermap.org/data/2.5/weather?id=3598132&appid=040e6f115fe46f4480d923d05db6a5b4')
+    return axios.get('http://api.openweathermap.org/data/2.5/weather?id=**********')
   } catch (error) {
     console.error(error)
   }
