@@ -6,9 +6,9 @@ const bodyparser = require('body-parser');
 var request = require("request");
 global.IDClimaActual=0;
 const rekognition = new AWS.Rekognition({
-    accessKeyId: 'AKIAYTJ4SQN4PCQXWIGK',
-    secretAccessKey: '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',
-    region: 'us-east-1'
+    accessKeyId: '******',
+    secretAccessKey: '*****',
+    region: '******'
 });
 
 
@@ -29,7 +29,7 @@ const getClima = () => {
 }
 
 const conectarRabbit = async () => {
-  amqp.connect('amqp://proyecto:1234@34.226.118.240', function(error0, connection) {
+  amqp.connect('******', function(error0, connection) {
   //amqp.connect('amqp://localhost', function(error0, connection) {
 	  if (error0) {
 		throw error0; 
